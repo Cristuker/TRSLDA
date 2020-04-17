@@ -1,0 +1,17 @@
+version: '3'
+services:
+    api:
+      image: node:12.6
+      volumes:
+        - ./api:/api
+      ports:
+        - 4001:4001
+      command: bash -c "cd /api && rm -rf node_modules && yarn && yarn dev"
+    db: 
+      image: postgres:11.7
+      environment:
+        POSTGRES_PASSWORD: 139276
+        POSTGRES_USER: admin
+        POSTGRES_DB: fast_delivery
+      ports:
+        - 5432:5432
