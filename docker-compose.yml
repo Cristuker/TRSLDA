@@ -1,19 +1,27 @@
 version: '3'
+networks:
+  banco:
 services:
+    db: 
+      image: postgres:11.7
+      environment:
+        POSTGRES_PASSWORD: 139276
+        POSTGRES_USER: 'admin'
+        POSTGRES_DB: fast_delivery
+      ports:
+        - 5432:5432
+      container_name: postgres_db
+      networks: 
+      - banco
     api:
       image: node:12.6
       volumes:
         - ./api:/api
       ports:
         - 4001:4001
-      command: bash -c "cd /api && rm -rf node_modules && yarn && yarn dev"
+      command: bash -c "cd /api && rm -rf node_modules && yarn install --frozen-lockfile && yarn dev"
       container_name: fast_dev_api
-    db: 
-      image: postgres:11.7
-      environment:
-        POSTGRES_PASSWORD: 139276
-        POSTGRES_USER: admin
-        POSTGRES_DB: fast_delivery
-      ports:
-        - 5432:5432
-      container_name: postgres_db
+      networks:
+      - banco
+      depends_on:
+      - db
