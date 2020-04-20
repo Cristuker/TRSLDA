@@ -2,7 +2,7 @@
     <img src="./images/logo.png">
 </figure>
 
-# 🚚 Fast Delivery (fastDev)
+# 🚚 Transportes LTDA
 
 FastDev é uma aplicação para gerenciamento de entregas(correios 👀).
 A ideia desse projeto foi apenas para treino me inspirando na stack (NodeJS, ReactJS).
@@ -18,12 +18,17 @@ A ideia desse projeto foi apenas para treino me inspirando na stack (NodeJS, Rea
 * Eslint
 * docker-compose
 
+## 
+
 ### Como rodar
 
 ```bash
 $ docker-compose up // na pasta raiz, fora da pasta api
 $ docker exec -it container_id bash //para entrar dentro do container e executar os comandos de yarn, evitando bagunça com a node_modules.
 ```
+
+##
+
 ### Para usar
 Antes de usar recomendo que rode as migrations e os seeds para adicionar usuário e criar as tabelas no banco.
 
