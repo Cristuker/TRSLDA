@@ -1,5 +1,5 @@
 <figure style="text-align: center;">
-    <img src="./images/logo.png">
+    <img src="./images/transporteltda.png">
 </figure>
 
 # 🚚 Transportes LTDA
