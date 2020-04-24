@@ -5,16 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "docker",
+            "name":"fast_dev_api",
+            "type": "node",
             "request": "attach",
             "restart": true,
+            "port":9229,
             "protocol": "inspector",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "preLaunchTask": "Run Docker Container",
-            "plataform":"node"
+            "address": "localhost",
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/fast_dev_api",
         }
     ]
 }

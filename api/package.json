@@ -29,6 +29,6 @@
     "dev": "nodemon src/server.js",
     "start": "docker-compose up",
     "lint": "./node_modules/.bin/eslint .",
-    "debug": "node --inspect-brk -r sucrase/register .. docker-compose up"
+    "debug": "node --inspect-brk -r sucrase/register"
   }
 }

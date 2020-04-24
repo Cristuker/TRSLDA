@@ -21,6 +21,7 @@ services:
         - 4001:4001
       command: bash -c "cd /api && rm -rf node_modules && yarn install --frozen-lockfile && yarn dev"
       container_name: fast_dev_api
+      working_dir: /fast_dev_api
       networks:
       - banco
       depends_on:

@@ -1,10 +1,10 @@
 <figure style="text-align: center;">
-    <img src="./images/logo.png">
+    <img src="./images/transporteltda.png">
 </figure>
 
 # 🚚 Transportes LTDA
 
-FastDev é uma aplicação para gerenciamento de entregas(correios 👀).
+Transportes LTDA é uma aplicação para gerenciamento de entregas(correios 👀).
 A ideia desse projeto foi apenas para treino me inspirando na stack (NodeJS, ReactJS).
 
 ### Tecnologias usadas nesse projeto
