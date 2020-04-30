@@ -19,8 +19,10 @@ class RecipientController {
             return res.status(401).json({error: 'Schema is not valid'});
         }
 
-        const { name, street, number, complement, state, city, zipCode } = req.body
-        console.log(req.body)
+        const { name, street, number, complement, state, city, zipCode } = req.body;
+
+        console.log(req.body);
+
         const response = await Recipient.create({
             name, 
             street, 
@@ -28,7 +30,7 @@ class RecipientController {
             complement, 
             state, 
             city, 
-            zipCode: zipCode
+            zip_code: zipCode
         })
 
         return res.json({response})

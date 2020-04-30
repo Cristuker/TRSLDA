@@ -28,12 +28,12 @@ module.exports = {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
-			zipCode: Sequelize.STRING,
+			zip_code: Sequelize.STRING,
 			created_at: {
 				type: Sequelize.DATE,
 				allowNull: false,
 			},
-			update_at: {
+			updated_at: {
 				type: Sequelize.DATE,
 				allowNull: false,
 			},
