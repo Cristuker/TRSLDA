@@ -3,8 +3,9 @@ import configSequelize from '../config/database';
 import User from '../models/User';
 import Recipients from '../models/Recipients';
 import File from '../models/File';
+import Deliveryman from '../models/Deliveryman';
 
-const models = [User, Recipients, File];
+const models = [User, Recipients, File, Deliveryman];
 
 class Database {
 	constructor() {
