@@ -1,6 +1,6 @@
-<figure style="text-align: center;">
+<h1 style="align: center;">
     <img src="./images/transporteltda.png">
-</figure>
+</h1>
 
 # 🚚 Transportes LTDA
 
@@ -31,5 +31,7 @@ $ docker exec -it container_id bash //para entrar dentro do container e executar
 
 ### Para usar
 Antes de usar recomendo que rode as migrations e os seeds para adicionar usuário e criar as tabelas no banco.
+
+---
 
 <p align="center">Made whit ❤️ by <strong><a href="http://linkedin.com/in/cristian-silva-dev" target="blank" >Cristian</></p></strong>
