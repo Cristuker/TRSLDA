@@ -5,15 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name":"fast_dev_api",
+            "name": "fast_dev_api",
             "type": "node",
             "request": "attach",
-            "restart": true,
-            "port":9229,
-            "protocol": "inspector",
+            "port": 9229,
             "address": "localhost",
+            "protocol": "inspector",
             "localRoot": "${workspaceFolder}",
-            "remoteRoot": "/fast_dev_api",
+            "remoteRoot": "${workspaceFolder}",
+            "restart": true,
         }
     ]
 }

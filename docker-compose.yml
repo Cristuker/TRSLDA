@@ -19,6 +19,7 @@ services:
         - ./api:/api
       ports:
         - 4001:4001
+        - 9229:9229
       command: bash -c "cd /api && rm -rf node_modules && yarn install --frozen-lockfile && yarn dev"
       container_name: fast_dev_api
       networks:
