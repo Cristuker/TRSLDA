@@ -12,7 +12,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.removeColumn('deliverymans', 'avatar_id');
+    return queryInterface.removeColumn('orders', 'recipient_id');
 
   }
 };
