@@ -1,0 +1,18 @@
+'use strict';
+
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.addColumn('orders', 'recipient_id', {
+      type: Sequelize.INTEGER,
+      references: { model: 'recipients', key: 'id' },
+      onUpdate: 'CASCADE',
+      allowNull: false,
+
+    })
+  },
+
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.removeColumn('deliverymans', 'avatar_id');
+
+  }
+};
