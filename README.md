@@ -18,20 +18,23 @@ A ideia desse projeto foi apenas para treino me inspirando na stack (NodeJS, Rea
 * Eslint
 * docker-compose
 
-## 
 
 ### Como rodar
 
 ```bash
 $ docker-compose up // na pasta raiz, fora da pasta api
-$ docker exec -it container_id bash //para entrar dentro do container e executar os comandos de yarn, evitando bagunça com a node_modules.
+$ docker exec -it ( container_id ou fast_dev_api ) bash
 ```
 
-##
+```bash
+$ yarn sequelize db:migrate // Para executar todas as migrations
+$ yarn sequelize db:migrate:undo // Para desfazer todas as migrations
+$ yarn sequelize db:seed:all // Para popular a tabela user, com usuário admin e começar a fazer request
+```
 
-### Para usar
-Antes de usar recomendo que rode as migrations e os seeds para adicionar usuário e criar as tabelas no banco.
 
----
+
+
+
 
 <p align="center">Made whit ❤️ by <strong><a href="http://linkedin.com/in/cristian-silva-dev" target="blank" >Cristian</></p></strong>
