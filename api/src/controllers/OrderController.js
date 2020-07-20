@@ -25,7 +25,8 @@ class OrderController {
                 deliveryman_id,
                 product,
                 start_date,
-                status: 1
+                status: 1,
+                user: req.userId
             });
 
             return res.json({ response })
@@ -97,6 +98,32 @@ class OrderController {
             return res.status(500).json({ message: 'Server internal error' });
         }
 
+    }
+
+    async index(req, res) {
+        const schema = Yup.object({
+            id: Yup.number(),
+            recipient_id: Yup.string(),
+            deliveryman_id: Yup.string(),
+            product: Yup.string().min(3),
+            canceled_at: Yup.date(),
+            start_date: Yup.date(),
+            end_date: Yup.date(),
+            status: Yup.number().max(1),
+        });
+
+        if (!(await schema.isValid(req.body))) {
+            return res.status(401).json({ error: "Request body is not valid!" });
+        }
+        const filters = req.query ? req.query : {};
+        console.log(filters)
+        const response = await Order.findAll({
+            where: {
+                user: req.userId,
+                ...filters
+            }
+        })
+        return res.json({ response })
     }
 }
 
