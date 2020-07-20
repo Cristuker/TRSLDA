@@ -20,4 +20,6 @@ routes.post('/files', upload.single('file'), FileController.store);
 
 routes.post('/orders', OrderController.store);
 
+routes.put('/orders', OrderController.update);
+
 export default routes;
