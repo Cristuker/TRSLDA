@@ -1,6 +1,7 @@
 import { Order } from '../models';
 import * as Yup from 'yup';
 import { checkStartDateIsValid } from '../utils/avaibleTime';
+import { isBefore } from 'date-fns';
 class OrderController {
 
     async store(req, res) {
@@ -10,16 +11,12 @@ class OrderController {
                 recipient_id: Yup.string().required(),
                 deliveryman_id: Yup.string().required(),
                 product: Yup.string().required().min(3),
-                // canceled_at: Yup.date(), put
                 start_date: Yup.date(),
-                // end_date: Yup.date(),
             })
 
             if (!(await schema.isValid(req.body))) {
                 return res.status(401).json({ error: "Request body is not valid!" });
             }
-
-            //A data de início deve ser cadastrada assim que for feita a retirada do produto pelo entregador, e as retiradas só podem ser feitas entre as 08:00 e 18:00h.
 
             const { recipient_id, deliveryman_id, product, start_date } = req.body;
 
@@ -65,12 +62,25 @@ class OrderController {
                 return res.status(400).json({ message: 'This order not exists' });
             }
 
-            const iCanGetOrder = checkStartDateIsValid(req.body.start_date);
+            if (req.body.start_date) {
+                const iCanGetOrder = checkStartDateIsValid(req.body.start_date);
 
-            if (!iCanGetOrder) {
-                return res.status(400).json({ message: 'Start hour is invalid' })
+                if (!iCanGetOrder) {
+                    return res.status(400).json({ message: 'Start hour is invalid' })
+                }
             }
 
+            if (req.body.end_date) {
+                if (isBefore(new Date(req.body.end_date), new Date(response.start_date))) {
+                    return res.status(400).json({ message: 'End date is before start date' })
+                }
+            }
+
+            if (req.body.canceled_at) {
+                if (isBefore(new Date(req.body.canceled_at), new Date(response.start_date))) {
+                    return res.status(400).json({ message: 'Canceled date is before start date' })
+                }
+            }
 
             const updateResponse = await Order.update(req.body, { where: { id } });
 
