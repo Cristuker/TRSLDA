@@ -120,6 +120,8 @@ class OrderController {
         const response = await Order.findAll({
             where: {
                 user: req.userId,
+                status: 1,
+                canceled_at: null,
                 ...filters
             }
         })
