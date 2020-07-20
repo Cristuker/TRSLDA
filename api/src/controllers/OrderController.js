@@ -47,7 +47,7 @@ class OrderController {
                 canceled_at: Yup.date(),
                 start_date: Yup.date(),
                 end_date: Yup.date(),
-                status: Yup.boolean(),
+                status: Yup.number().max(1),
             });
 
             if (!(await schema.isValid(req.body))) {
