@@ -24,7 +24,8 @@ class OrderController {
                 recipient_id,
                 deliveryman_id,
                 product,
-                start_date
+                start_date,
+                status: 1
             });
 
             return res.json({ response })
@@ -46,6 +47,7 @@ class OrderController {
                 canceled_at: Yup.date(),
                 start_date: Yup.date(),
                 end_date: Yup.date(),
+                status: Yup.boolean(),
             });
 
             if (!(await schema.isValid(req.body))) {
