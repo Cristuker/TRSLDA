@@ -1,5 +1,5 @@
 Arguments: 
-  /home/cris/.nvm/versions/node/v12.16.3/bin/node /home/cris/.yarn/bin/yarn.js add husky lint-staged
+  /home/cris/.nvm/versions/node/v12.16.3/bin/node /home/cris/.yarn/bin/yarn.js add eslint-plugin-prettier
 
 PATH: 
   /home/cris/.yarn/bin:/home/cris/.config/yarn/global/node_modules/.bin:/home/cris/.deno/bin:/home/cris/.yarn/bin:/home/cris/.config/yarn/global/node_modules/.bin:/home/cris/.deno/bin:/home/cris/.nvm/versions/node/v12.16.3/bin:/home/cris/.zinit/polaris/bin:/home/cris/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/usr/local/go/bin
@@ -24,6 +24,7 @@ npm manifest:
     "license": "MIT",
     "dependencies": {
       "bcryptjs": "^2.4.3",
+      "date-fns": "^2.15.0",
       "editorconfig": "^0.15.3",
       "express": "^4.17.1",
       "git-commit-msg-linter": "^2.4.4",
@@ -594,6 +595,11 @@ Lockfile:
     dependencies:
       es5-ext "^0.10.50"
       type "^1.0.1"
+  
+  date-fns@^2.15.0:
+    version "2.15.0"
+    resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.15.0.tgz#424de6b3778e4e69d3ff27046ec136af58ae5d5f"
+    integrity sha512-ZCPzAMJZn3rNUvvQIMlXhDr4A+Ar07eLeGsGREoWU19a3Pqf5oYa+ccd+B3F6XVtQY6HANMFdOQ8A+ipFnvJdQ==
   
   debug@2.6.9, debug@^2.2.0, debug@^2.6.9:
     version "2.6.9"
@@ -1744,9 +1750,9 @@ Lockfile:
     integrity sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=
   
   lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.5:
-    version "4.17.15"
-    resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-    integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+    version "4.17.19"
+    resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+    integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
   
   long@^4.0.0:
     version "4.0.0"

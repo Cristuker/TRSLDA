@@ -1,7 +1,13 @@
 import { Router } from 'express';
-import { DeliverymanController, FileController, OrderController, SessionController, RecipientsController } from './controllers/'
-import authMiddleware from './middlewares/auth';
 import multer from 'multer';
+import {
+	DeliverymanController,
+	FileController,
+	OrderController,
+	SessionController,
+	RecipientsController,
+} from './controllers';
+import authMiddleware from './middlewares/auth';
 import multerConfig from './config/multer';
 
 const routes = new Router();
