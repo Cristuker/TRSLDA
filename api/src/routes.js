@@ -7,6 +7,7 @@ import {
     SessionController,
     RecipientsController,
     DeliveriesController,
+    DeliveryProblemsController,
 } from './controllers';
 import authMiddleware from './middlewares/auth';
 import multerConfig from './config/multer';
@@ -32,5 +33,7 @@ routes.post('/orders', OrderController.store);
 routes.put('/orders', OrderController.update);
 
 routes.get('/orders', OrderController.index);
+
+routes.post('/problems', DeliveryProblemsController.store);
 
 export default routes;
