@@ -7,13 +7,13 @@ class SessionController {
 
 		const user = await User.findOne({ where: { email } });
 
-		if(!user){
-			return res.status(401).json({ error: 'Cannot find this user.'});
+		if (!user) {
+			return res.status(401).json({ error: 'Cannot find this user.' });
 		}
-		
-		const token = jwt.sign({user}, auth.secret)
 
-		return res.json({user: {name:user.name, email,}, token})
+		const token = jwt.sign({ user }, auth.secret);
+
+		return res.json({ user: { name: user.name, email }, token });
 	}
 }
 

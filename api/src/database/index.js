@@ -12,11 +12,14 @@ class Database {
 	init() {
 		try {
 			this.connection = new Sequelize(configSequelize);
-			models.map(model => model.init(this.connection));
-			models.map((model) => model.associate && model.associate(this.connection.models));
-			console.log('Connection Success!')
+			models.map((model) => model.init(this.connection));
+			models.map(
+				(model) =>
+					model.associate && model.associate(this.connection.models)
+			);
+			console.log('Connection Success!');
 		} catch (err) {
-			console.log(`Not connected ${err}`)
+			console.log(`Not connected ${err}`);
 		}
 	}
 }

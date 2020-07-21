@@ -1,5 +1,5 @@
 {
     "hooks": {
-        "pre-commit": "lint-staged && eslint--fix src/*.js"
+        "pre-commit": "lint-staged && eslint--fix src/*.js && yarn prettier --write "src /**/*.js""
     }
 }
