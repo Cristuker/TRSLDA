@@ -6,6 +6,7 @@ import {
 	OrderController,
 	SessionController,
 	RecipientsController,
+	DeliveriesController
 } from './controllers';
 import authMiddleware from './middlewares/auth';
 import multerConfig from './config/multer';
@@ -22,7 +23,7 @@ routes.post('/recipients', RecipientsController.store);
 
 routes.post('/deliveryman', DeliverymanController.store);
 
-routes.get('/deliveryman/:id/deliveris', DeliverymanController.index);
+routes.get('/deliveryman/:id/deliveries', DeliveriesController.index);
 
 routes.post('/files', upload.single('file'), FileController.store);
 

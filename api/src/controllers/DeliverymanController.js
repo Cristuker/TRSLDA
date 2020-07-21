@@ -1,4 +1,4 @@
-import Deliveryman from '../models/Deliveryman';
+import { Deliveryman } from '../models/';
 import * as Yup from 'yup';
 
 class DeliverymanController {
@@ -30,9 +30,6 @@ class DeliverymanController {
 		}
 	}
 
-	async index(req, res) {
-		return res.send({ message: 'controller is working' });
-	}
 }
 
 export default new DeliverymanController();
