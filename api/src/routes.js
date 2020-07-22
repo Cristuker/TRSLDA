@@ -36,4 +36,6 @@ routes.get('/orders', OrderController.index);
 
 routes.post('/problems', DeliveryProblemsController.store);
 
+routes.get('/problems/:id', DeliveryProblemsController.index);
+
 export default routes;

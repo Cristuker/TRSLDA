@@ -12,7 +12,6 @@ class DeliveryProblemsController {
             if (!(await schema.isValid(req.body))) {
                 return res.status(401).json({ error: 'Schema is not valid' });
             }
-            console.log(req.body);
             const { delivery_id, description } = req.body;
             const response = await DeliveryProblems.create({
                 delivery_id,
@@ -25,6 +24,23 @@ class DeliveryProblemsController {
                 .status(500)
                 .json({ error: 'Server internal error', error });
         }
+    }
+
+    async index(req, res) {
+        const schema = Yup.object({
+            id: Yup.number().required(),
+        });
+
+        if (!(await schema.isValid(req.params))) {
+            return res.status(401).json({ error: 'Schema is not valid' });
+        }
+        const { id } = req.params;
+
+        const response = await DeliveryProblems.findAll({
+            where: { delivery_id: id },
+        });
+
+        return res.json({ response });
     }
 }
 
