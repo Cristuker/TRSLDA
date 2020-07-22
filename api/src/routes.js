@@ -38,4 +38,6 @@ routes.post('/problems', DeliveryProblemsController.store);
 
 routes.get('/problems/:id', DeliveryProblemsController.index);
 
+routes.put('/problems/:id/cancel', DeliveryProblemsController.update);
+
 export default routes;

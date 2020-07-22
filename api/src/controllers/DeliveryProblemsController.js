@@ -1,4 +1,4 @@
-import { DeliveryProblems } from '../models/';
+import { DeliveryProblems, Order } from '../models/';
 import * as Yup from 'yup';
 
 class DeliveryProblemsController {
@@ -27,20 +27,66 @@ class DeliveryProblemsController {
     }
 
     async index(req, res) {
-        const schema = Yup.object({
-            id: Yup.number().required(),
-        });
+        try {
+            const schema = Yup.object({
+                id: Yup.number().required(),
+            });
 
-        if (!(await schema.isValid(req.params))) {
-            return res.status(401).json({ error: 'Schema is not valid' });
+            if (!(await schema.isValid(req.params))) {
+                return res.status(401).json({ error: 'Schema is not valid' });
+            }
+            const { id } = req.params;
+
+            const response = await DeliveryProblems.findAll({
+                where: { delivery_id: id },
+            });
+
+            return res.json({ response });
+        } catch (error) {
+            return res
+                .status(500)
+                .json({ error: 'Server internal error', error });
         }
-        const { id } = req.params;
+    }
 
-        const response = await DeliveryProblems.findAll({
-            where: { delivery_id: id },
-        });
+    async update(req, res) {
+        try {
+            const paramsSchema = Yup.object({
+                id: Yup.number().required(),
+            });
+            const bodySchema = Yup.object({
+                canceled_at: Yup.date().required(),
+            });
 
-        return res.json({ response });
+            if (!(await paramsSchema.isValid(req.params))) {
+                return res.status(401).json({ error: 'Schema is not valid' });
+            }
+            if (!(await bodySchema.isValid(req.body))) {
+                return res.status(401).json({ error: 'Schema is not valid' });
+            }
+            const { id } = req.params;
+            const thisOrderExists = await Order.findAll({ where: { id } });
+
+            if (!thisOrderExists.length) {
+                return res
+                    .status(400)
+                    .json({ message: `This order don't exists!` });
+            }
+
+            const response = await Order.update(req.body, {
+                where: { id },
+            });
+            if (!response.length) {
+                res.status(400).json({
+                    message: 'You order will not updated!',
+                });
+            }
+            return res.json({ message: 'Update sucess!' });
+        } catch (error) {
+            return res
+                .status(500)
+                .json({ error: 'Server internal error', error });
+        }
     }
 }
 
